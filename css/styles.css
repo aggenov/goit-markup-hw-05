@@ -132,6 +132,13 @@ img {
   padding-bottom: 24px;
 }
 
+.header .nav-link,
+.header .addres-link {
+  transition-property: color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 250ms;
+}
+
 .header .nav-link:focus,
 .header .nav-link:hover,
 .header .addres-link:hover,
@@ -183,6 +190,10 @@ img {
   letter-spacing: 0.04em;
   border-radius: 4px;
   cursor: pointer;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  transition-property: box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 250ms;
 }
 
 .button-hero:focus,
@@ -327,6 +338,10 @@ img {
   border-radius: 50%;
   background-color: var(--button-color);
   cursor: pointer;
+
+  transition-property: background-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 250ms;
 }
 
 .link-icon {
@@ -366,11 +381,18 @@ img {
   border-radius: 4px;
   height: 100%;
   width: 100%;
+
+  transition-property: border;
+  transition-duration: 250ms;
 }
 .clients-icon {
   width: 104px;
   height: 56px;
   fill: var(--main-icon-color);
+
+  transition-property: fill;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 250ms;
 }
 
 .clients-link:focus,
@@ -429,6 +451,10 @@ img {
   height: 40px;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.1);
+
+  transition-property: background-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 250ms;
 }
 
 .footer-social-link .link-icon {
@@ -470,6 +496,9 @@ img {
   color: var(--button-color);
 
   padding: 12px 24px;
+  transition-property: background-color, border, color, box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button-item:hover,
@@ -499,11 +528,14 @@ img {
 }
 .developments-link {
   display: block;
+
+  transition-property: box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 2500ms;
 }
 
 .dev-card {
   padding: 32px 16px;
-  /* border: 1px solid #F4F4FD; */
   border-left: 1px solid var(--background-color);
   border-right: 1px solid var(--background-color);
   border-bottom: 1px solid var(--background-color);

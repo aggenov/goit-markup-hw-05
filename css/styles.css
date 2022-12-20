@@ -22,7 +22,7 @@
 }
 
 body {
-  padding: 76px;
+  /* padding-top: 76px; */
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -60,11 +60,11 @@ img {
   background-color: var(--background-white);
   box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
-  position: fixed;
+  /* position: fixed;
   width: 100%;
   top: 0;
   left: 0;
-  z-index: 2;
+  z-index: 2; */
 }
 
 .header .container {
@@ -107,14 +107,6 @@ img {
   color: var(--background-color);
 }
 
-.current::after {
-  content: "";
-
-  width: 78px;
-  height: 2px;
-
-  background-color: var(--button-color);
-}
 .nav-menu {
   display: flex;
   margin-left: 77px;
@@ -133,10 +125,27 @@ img {
 }
 
 .nav-link {
+  position: relative;
   font-weight: 700;
   line-height: 1.5;
   color: var(--main-color-title);
   text-decoration: none;
+}
+.current {
+  color: var(--button-color);
+}
+
+.current::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 4px;
+
+  border-radius: 2px;
+  background-color: var(--button-color);
 }
 
 .addres-link {
@@ -151,9 +160,7 @@ img {
 
 .header .nav-link,
 .header .addres-link {
-  transition-property: color;
-  transition-timing-function: var(--timing-function);
-  transition-duration: var(--duration-time);
+  transition: color var(--duration-time) var(--timing-function);
 }
 
 .header .nav-link:focus,
@@ -208,9 +215,7 @@ img {
   border-radius: 4px;
   cursor: pointer;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  transition-property: box-shadow;
-  transition-timing-function: var(--timing-function);
-  transition-duration: var(--duration-time);
+  transition: box-shadow var(--duration-time) var(--timing-function);
 }
 
 .button-hero:focus,
@@ -356,9 +361,7 @@ img {
   background-color: var(--button-color);
   cursor: pointer;
 
-  transition-property: background-color;
-  transition-timing-function: var(--timing-function);
-  transition-duration: var(--duration-time);
+  transition: background-color var(--duration-time) var(--timing-function);
 }
 
 .link-icon {
@@ -399,18 +402,14 @@ img {
   height: 100%;
   width: 100%;
 
-  transition-property: border-color;
-  transition-timing-function: var(--timing-function);
-  transition-duration: var(--duration-time);
+  transition: border-color var(--duration-time) var(--timing-function);
 }
 .clients-icon {
   width: 104px;
   height: 56px;
   fill: var(--main-icon-color);
 
-  transition-property: fill;
-  transition-timing-function: var(--timing-function);
-  transition-duration: var(--duration-time);
+  transition: fill var(--duration-time) var(--timing-function);
 }
 
 .clients-link:focus,
@@ -470,9 +469,7 @@ img {
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.1);
 
-  transition-property: background-color;
-  transition-timing-function: var(--timing-function);
-  transition-duration: var(--duration-time);
+  transition: background-color var(--duration-time) var(--timing-function);
 }
 
 .footer-social-link .link-icon {
@@ -484,6 +481,78 @@ img {
 .footer-social-link:hover,
 .footer-social-link:focus {
   background-color: var(--activ-icon-color);
+}
+
+.backdrop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+  transition: opacity var(--duration-time) var(--timing-function),
+    visibility var(--duration-time) var(--timing-function);
+
+  background-color: rgba(46, 47, 66, 0.4);
+}
+
+.backdrop.is-hidden {
+  /* visibility: hidden; */
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {
+  width: 408px;
+  height: 576px;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1) rotate(0);
+
+  /* overflow-y: auto; */
+  transition: transform var(--duration-time) var(--timing-function);
+
+  background-color: #fcfcfc;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.2) rotate(180deg);
+}
+
+/* button Modal-close */
+.modal-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+
+  display: flex;
+  width: 24px;
+  height: 24px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  background-color: var(--button-color-border);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  box-shadow: none;
+
+  transition: box-shadow var(--duration-time) var(--timing-function);
+}
+
+.close-icon {
+  width: 8px;
+  height: 8px;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 
 /* Portfolio */
@@ -544,17 +613,11 @@ img {
   display: flex;
   flex-direction: column;
 
-  transition-property: box-shadow;
-  transition-timing-function: var(--timing-function);
-  transition-duration: var(--duration-time);
+  transition: box-shadow var(--duration-time) var(--timing-function);
 }
 
 .developments-link {
   display: block;
-
-  /* transition-property: box-shadow;
-  transition-timing-function: var(--timing-function);
-  transition-duration: var(--duration-time); */
 }
 
 .development-item:hover,
@@ -582,9 +645,7 @@ img {
   left: 0;
 
   transform: translateY(100%);
-  transition-property: transform;
-  transition-duration: var(--duration-time);
-  transition-timing-function: var(--timing-function);
+  transition: transform var(--duration-time) var(--timing-function);
 }
 
 .development-link:hover .overlay,
